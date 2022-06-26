@@ -1,0 +1,12 @@
+dotmap
+torch 
+torchvision
+numpy
+scipy
+jupyter
+cython
+matplotlib
+pybullet
+tqdm
+cvxpy
+meshcat
