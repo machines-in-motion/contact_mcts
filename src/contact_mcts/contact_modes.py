@@ -1,4 +1,3 @@
-import networkx as nx
 import numpy as np
 from itertools import combinations, permutations
 
@@ -74,21 +73,3 @@ def construct_contact_plan(contact_modes, params):
         for j in range(d):
             contact_plan.append((mode, i*d + j))
     return contact_plan
-
-def full_contact(mode):
-    if np.count_nonzero(mode) >= min(3, len(mode)):
-        return True
-    else:
-        return False
-
-def no_contact(mode):
-    if np.count_nonzero(mode) == 0:
-        return True
-    else:
-        return False
-
-def contact_removed(curr_mode, next_mode):
-    if np.count_nonzero(next_mode) < np.count_nonzero(curr_mode):
-        return True
-    else:
-        return False

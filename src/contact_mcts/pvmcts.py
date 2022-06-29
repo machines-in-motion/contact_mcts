@@ -3,13 +3,10 @@ import numpy as np
 import torch
 import pinocchio as pin
 from torch.utils.data import Dataset
-
-
-from tqdm import trange
 from scipy.special import softmax
 
-from contact_mcts.problems import integrate_solution, kinematic_feasibility
-from contact_mcts.problems import BiconvexProblem
+from contact_mcts.problems import BiconvexProblem, integrate_solution
+from contact_mcts.heuristics import kinematic_feasibility, contact_removed, no_contact
 from contact_mcts.contact_modes import *
 from contact_mcts.pvnet import PolicyValueNet, ValueClassifier
 eps = 1e-6
@@ -85,8 +82,8 @@ class PolicyValueMCTS(object):
         for next_mode in feasible_transitions:
             n = len(state) * d
             if kinematic_feasibility(next_mode, n, d, self.params, self.env):
-                if no_contact(next_mode) or contact_removed(curr_mode, next_mode):
-                    # only allow no contact / removing contact for zero acc.
+                if contact_removed(curr_mode, next_mode):
+                    # only allow removing contact for zero acc.
                     acc_norm = np.linalg.norm(self.params.traj_desired.ddq[n:n+d, :])
                     if np.isclose(acc_norm, 0):
                         legal_actions.append(next_mode)
@@ -215,8 +212,8 @@ class PolicyValueMCTS(object):
         return reward
 
     def compute_heuristics_score(self, state):
-        _, heuristics_score = self.predict(state)
-        return heuristics_score
+        _, v = self.predict(state)
+        return v
 
     def get_state_info(self, state):
 

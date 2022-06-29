@@ -1,7 +1,6 @@
 import pinocchio as pin
 import numpy as np
 from dotmap import DotMap
-from contact_mcts.contact_modes import full_contact
 from contact_mcts.contacts import environment_contact
 
 def location_to_world(location, pose_ref):
@@ -281,7 +280,6 @@ def get_end_effector_regions(traj, params):
         end_effector_regions.append(end_effector_region)
 
     return end_effector_regions
-
         
 def integrate_trajectory(pose_start, idx_start, idx_end,
                          force, torque,

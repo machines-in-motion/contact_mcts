@@ -1,7 +1,6 @@
 import pinocchio as pin
 import numpy as np
 
-from pinocchio.utils import zero
 from pinocchio.robot_wrapper import RobotWrapper
 from scipy.spatial import ConvexHull
 
