@@ -2,9 +2,9 @@
 This repo hosts the source code for the paper [Efficient Object Manipulation Planning with Monte Carlo Tree Search](https://arxiv.org/abs/2206.09023)
 
 ## Dependencies
-- [Pinocchio](https://github.com/stack-of-tasks/pinocchio)
-- [Bullet Utils](https://github.com/machines-in-motion/bullet_utils)
-- [Robot Properties NYU Finger](https://github.com/open-dynamic-robot-initiative/robot_properties_nyu_finger)
+- [Pinocchio](https://github.com/stack-of-tasks/pinocchio) for rigid body dynamics
+- [Bullet Utils](https://github.com/machines-in-motion/bullet_utils) for interfacing PyBullet with Pinocchio
+- [Robot Properties NYU Finger](https://github.com/open-dynamic-robot-initiative/robot_properties_nyu_finger) for NYU finger URDFs and configuration files
 - Other standard dependencies can be found in ``requirements.txt``.
 
 ## Demos
