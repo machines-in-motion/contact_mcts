@@ -10,3 +10,4 @@ pybullet
 tqdm
 cvxpy
 meshcat
+networkx
