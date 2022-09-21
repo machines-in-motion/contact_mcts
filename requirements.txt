@@ -9,5 +9,5 @@ matplotlib
 pybullet
 tqdm
 cvxpy
+gurobipy
 meshcat
-networkx
