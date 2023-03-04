@@ -11,3 +11,5 @@ tqdm
 cvxpy
 gurobipy
 meshcat
+networkx
+pin
