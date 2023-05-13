@@ -26,9 +26,12 @@ We prepared a few notebooks
 }
 ```
 
+## Maintainer
+- Huaijiang Zhu
+
 ## Copyrights
 
-Copyright(c) 2022 New York University
+Copyright(c) 2023 New York University
 
 ## License
 
